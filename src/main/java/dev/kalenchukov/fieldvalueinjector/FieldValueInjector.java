@@ -26,7 +26,6 @@ public class FieldValueInjector implements FieldValueInjectable
 	/**
 	 * Локаль.
 	 * Для изменения локали необходимо использовать {@link #setLocale(Locale)}.
-	 * Внимание! Необходима для логов, так как локализационные тексты используются только для логирования.
 	 */
 	@NotNull
 	private Locale locale = new Locale("ru", "RU");
@@ -50,13 +49,13 @@ public class FieldValueInjector implements FieldValueInjectable
 	private static final Logger LOG = Logger.getLogger(FieldValueInjector.class);
 
 	/**
-	 * Устанавливает тексты локализации для логирования.
+	 * Устанавливает тексты локализации логирования.
 	 */
 	@NotNull
-	private ResourceBundle localeCore = ResourceBundle.getBundle("localizations/core", locale);
+	private ResourceBundle localeLogs = ResourceBundle.getBundle("localizations/logs", locale);
 
 	/**
-	 * Устанавливает тексты локализации для логирования.
+	 * Устанавливает локализованные тексты исключений.
 	 */
 	@NotNull
 	private ResourceBundle localeExceptions = ResourceBundle.getBundle("localizations/exceptions", locale);
@@ -82,7 +81,7 @@ public class FieldValueInjector implements FieldValueInjectable
 		{
 			this.locale = locale;
 
-			localeCore = ResourceBundle.getBundle("localizations/core", this.locale);
+			localeLogs = ResourceBundle.getBundle("localizations/logs", this.locale);
 			localeExceptions = ResourceBundle.getBundle("localizations/exceptions", this.locale);
 		}
 	}
@@ -98,7 +97,7 @@ public class FieldValueInjector implements FieldValueInjectable
 		Objects.requireNonNull(data);
 
 		LOG.debug(String.format(
-			localeCore.getString("60001"),
+			localeLogs.getString("60001"),
 			this.object.getClass().getName()
 		));
 
@@ -113,7 +112,7 @@ public class FieldValueInjector implements FieldValueInjectable
 				if (value == null)
 				{
 					LOG.debug(String.format(
-							localeCore.getString("60003"),
+							localeLogs.getString("60003"),
 							field.getName()
 					));
 
@@ -129,7 +128,7 @@ public class FieldValueInjector implements FieldValueInjectable
 		}
 
 		LOG.debug(String.format(
-			localeCore.getString("60002"),
+			localeLogs.getString("60002"),
 			this.object.getClass().getName()
 		));
 	}
@@ -201,7 +200,7 @@ public class FieldValueInjector implements FieldValueInjectable
 		}
 
 		LOG.debug(String.format(
-			localeCore.getString("60004"),
+			localeLogs.getString("60004"),
 			field.getName()
 		));
 	}
@@ -227,7 +226,7 @@ public class FieldValueInjector implements FieldValueInjectable
 				);
 
 				LOG.debug(String.format(
-					localeCore.getString("60005"),
+					localeLogs.getString("60005"),
 					annotationConverter.converter().getTypeName(),
 					field.getGenericType().getTypeName()
 				));
