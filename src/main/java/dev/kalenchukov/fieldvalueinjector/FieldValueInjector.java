@@ -62,7 +62,7 @@ public class FieldValueInjector implements FieldValueInjectable
 	private ResourceBundle localeExceptions = ResourceBundle.getBundle("localizations/exceptions", locale);
 
 	/**
-	 * Конструктор для {@code Injection}.
+	 * Конструктор для {@code FieldValueInjector}.
 	 *
 	 * @param object Объект класса в который необходимо внедрить данные.
 	 */
