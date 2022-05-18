@@ -1,4 +1,4 @@
-module dev.kalenchukov.injector
+module dev.kalenchukov.fieldvalueinjector
 {
 	requires org.jetbrains.annotations;
 	requires log4j;
