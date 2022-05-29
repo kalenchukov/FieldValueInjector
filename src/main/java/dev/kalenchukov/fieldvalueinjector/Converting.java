@@ -11,6 +11,8 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * Интерфейс для реализации конвертера типа значений.
+ *
+ * @param <T> Объект типа возвращаемых данных.
  */
 public interface Converting<T>
 {
