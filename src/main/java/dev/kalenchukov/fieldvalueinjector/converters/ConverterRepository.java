@@ -13,6 +13,7 @@ import dev.kalenchukov.fieldvalueinjector.converters.sets.*;
 import dev.kalenchukov.fieldvalueinjector.converters.singles.*;
 import dev.kalenchukov.fieldvalueinjector.Converting;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.UnmodifiableView;
 
 import java.util.*;
 
@@ -44,6 +45,7 @@ public final class ConverterRepository
 	 *
 	 * @return Коллекцию конвертеров типа данных.
 	 */
+	@UnmodifiableView
 	@NotNull
 	public Map<@NotNull String, @NotNull Class<? extends Converting<?>>> getConverters()
 	{
