@@ -9,22 +9,22 @@ package dev.kalenchukov.fieldvalueinjector.exceptions;
 /**
  * Исключение для некорректного конвертера значений внедрения.
  */
-public class BadConverterFieldValueInjectorException extends RuntimeException
+public class InvalidConverterFieldValueInjectorException extends RuntimeException
 {
     /**
-     * Конструктор для {@code BadConverterFieldValueInjectorException}.
+     * Конструктор для {@code InvalidConverterFieldValueInjectorException}.
      */
-    public BadConverterFieldValueInjectorException()
+    public InvalidConverterFieldValueInjectorException()
     {
         super();
     }
 
     /**
-     * Конструктор для {@code BadConverterFieldValueInjectorException}.
+     * Конструктор для {@code InvalidConverterFieldValueInjectorException}.
      *
      * @param message Сообщение.
      */
-    public BadConverterFieldValueInjectorException(String message)
+    public InvalidConverterFieldValueInjectorException(String message)
     {
         super(message);
     }

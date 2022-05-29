@@ -91,8 +91,7 @@ public class FieldValueInjector implements FieldValueInjectable
 	 */
 	@Override
 	public void inject(@NotNull final Map<@NotNull String, @Nullable String @Nullable []> data)
-		throws IllegalValueFieldValueInjectorException, UnknownConverterFieldValueInjectorException,
-		BadConverterFieldValueInjectorException
+		throws IllegalValueFieldValueInjectorException, UnknownConverterFieldValueInjectorException, InvalidConverterFieldValueInjectorException
 	{
 		Objects.requireNonNull(data);
 
@@ -141,11 +140,10 @@ public class FieldValueInjector implements FieldValueInjectable
 	 *
 	 * @throws IllegalValueFieldValueInjectorException Если передано некорректное значение для внедрения в данное поле класса.
 	 * @throws UnknownConverterFieldValueInjectorException Если для типа поля не реализован персональный конвертер.
-	 * @throws BadConverterFieldValueInjectorException Если конвертер некорректный.
+	 * @throws InvalidConverterFieldValueInjectorException Если конвертер некорректный.
 	 */
 	private void injectValueField(@NotNull final Field field, @Nullable final String @Nullable [] value)
-		throws IllegalValueFieldValueInjectorException, UnknownConverterFieldValueInjectorException,
-		BadConverterFieldValueInjectorException
+		throws IllegalValueFieldValueInjectorException, UnknownConverterFieldValueInjectorException, InvalidConverterFieldValueInjectorException
 	{
 		Objects.requireNonNull(field);
 		Objects.requireNonNull(value);
@@ -192,7 +190,7 @@ public class FieldValueInjector implements FieldValueInjectable
 		catch (IllegalArgumentException | NoSuchMethodException |
 			IllegalAccessException | InstantiationException exception)
 		{
-			throw new BadConverterFieldValueInjectorException(String.format(
+			throw new InvalidConverterFieldValueInjectorException(String.format(
 				localeExceptions.getString("70003"),
 				converter.getName(),
 				this.object.getClass().getName()

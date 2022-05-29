@@ -7,7 +7,7 @@
 package dev.kalenchukov.fieldvalueinjector;
 
 import dev.kalenchukov.fieldvalueinjector.annotations.Converter;
-import dev.kalenchukov.fieldvalueinjector.exceptions.BadConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.InvalidConverterFieldValueInjectorException;
 import dev.kalenchukov.fieldvalueinjector.exceptions.IllegalValueFieldValueInjectorException;
 import dev.kalenchukov.fieldvalueinjector.exceptions.UnknownConverterFieldValueInjectorException;
 import dev.kalenchukov.fieldvalueinjector.supports.*;
@@ -421,7 +421,7 @@ public class FieldValueInjectorTest
     /**
      * Проверка использования неподходящего собственного конвертера типа данных.
      */
-    @Test(expected = BadConverterFieldValueInjectorException.class)
+    @Test(expected = InvalidConverterFieldValueInjectorException.class)
     public void testInject14()
     {
         class Experimental
