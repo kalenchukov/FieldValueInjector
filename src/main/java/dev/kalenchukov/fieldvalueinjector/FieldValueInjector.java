@@ -48,13 +48,13 @@ public class FieldValueInjector implements FieldValueInjectable
 	private static final Logger LOG = Logger.getLogger(FieldValueInjector.class);
 
 	/**
-	 * Устанавливает тексты локализации логирования.
+	 * Локализованные тексты логирования.
 	 */
 	@NotNull
 	private ResourceBundle localeLogs = ResourceBundle.getBundle("localizations/logs", locale);
 
 	/**
-	 * Устанавливает локализованные тексты исключений.
+	 * Локализованные тексты исключений.
 	 */
 	@NotNull
 	private ResourceBundle localeExceptions = ResourceBundle.getBundle("localizations/exceptions", locale);
