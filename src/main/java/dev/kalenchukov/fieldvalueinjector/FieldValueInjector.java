@@ -42,7 +42,7 @@ public class FieldValueInjector implements FieldValueInjectable
 	private final ConverterRepository converterRepository = new ConverterRepository();
 
 	/**
-	 * Устанавливает логгер для данного класса.
+	 * Логгер для данного класса.
 	 */
 	@NotNull
 	private static final Logger LOG = Logger.getLogger(FieldValueInjector.class);
