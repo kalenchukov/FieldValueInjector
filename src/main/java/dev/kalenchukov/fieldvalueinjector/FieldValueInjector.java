@@ -24,8 +24,7 @@ import java.util.*;
 public class FieldValueInjector implements FieldValueInjectable
 {
 	/**
-	 * Локаль.
-	 * Для изменения локали необходимо использовать {@link #setLocale(Locale)}.
+	 * Локализация.
 	 */
 	@NotNull
 	private Locale locale = new Locale("ru", "RU");

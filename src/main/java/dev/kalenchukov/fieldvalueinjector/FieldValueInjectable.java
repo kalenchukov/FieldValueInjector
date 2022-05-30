@@ -23,7 +23,7 @@ public interface FieldValueInjectable
 	/**
 	 * Устанавливает локализацию.
 	 *
-	 * @param locale Локаль.
+	 * @param locale Локализация.
 	 */
 	void setLocale(@NotNull Locale locale);
 
