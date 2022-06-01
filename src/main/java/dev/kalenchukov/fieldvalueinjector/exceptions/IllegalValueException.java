@@ -6,26 +6,24 @@
 
 package dev.kalenchukov.fieldvalueinjector.exceptions;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
+
 /**
  * Исключение для некорректного значения для внедрения.
  */
-public class IllegalValueFieldValueInjectorException extends RuntimeException
+public class IllegalValueException extends RuntimeException
 {
     /**
-     * Конструктор для {@code IllegalValueFieldValueInjectorException}.
-     */
-    public IllegalValueFieldValueInjectorException()
-    {
-        super();
-    }
-
-    /**
-     * Конструктор для {@code IllegalValueFieldValueInjectorException}.
+     * Конструктор для {@code IllegalValueException}.
      *
      * @param message Сообщение.
      */
-    public IllegalValueFieldValueInjectorException(String message)
+    public IllegalValueException(@NotNull final String message)
     {
         super(message);
+
+		Objects.requireNonNull(message);
     }
 }

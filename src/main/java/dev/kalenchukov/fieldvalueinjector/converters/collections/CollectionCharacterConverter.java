@@ -2,7 +2,7 @@ package dev.kalenchukov.fieldvalueinjector.converters.collections;
 
 import dev.kalenchukov.fieldvalueinjector.Converting;
 import dev.kalenchukov.fieldvalueinjector.converters.arrays.ArrayOfCharacterConverter;
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -20,7 +20,7 @@ public final class CollectionCharacterConverter implements Converting<Collection
 	@Override
 	@Nullable
 	public Collection<@NotNull Character> convertValueToType(@Nullable final String @Nullable [] value)
-		throws UnableConverterFieldValueInjectorException
+		throws UnableConverterException
 	{
 		Character[] convertValue = new ArrayOfCharacterConverter().convertValueToType(value);
 
@@ -31,7 +31,7 @@ public final class CollectionCharacterConverter implements Converting<Collection
 		boolean has = Arrays.stream(convertValue).anyMatch(Objects::isNull);
 
 		if (has) {
-			throw new UnableConverterFieldValueInjectorException();
+			throw new UnableConverterException();
 		}
 
 		return List.of(convertValue);

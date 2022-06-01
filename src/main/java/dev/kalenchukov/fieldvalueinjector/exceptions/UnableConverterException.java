@@ -6,26 +6,29 @@
 
 package dev.kalenchukov.fieldvalueinjector.exceptions;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
+
 /**
  * Исключение для невозможности конвертирования значения внедрения.
  */
-public class UnableConverterFieldValueInjectorException extends RuntimeException
+public class UnableConverterException extends RuntimeException
 {
-    /**
-     * Конструктор для {@code UnableConverterFieldValueInjectorException}.
-     */
-    public UnableConverterFieldValueInjectorException()
-    {
-        super();
-    }
+	/**
+	 * Конструктор для {@code UnableConverterException}.
+	 */
+	public UnableConverterException() {}
 
     /**
-     * Конструктор для {@code UnableConverterFieldValueInjectorException}.
+     * Конструктор для {@code UnableConverterException}.
      *
      * @param message Сообщение.
      */
-    public UnableConverterFieldValueInjectorException(String message)
+    public UnableConverterException(@NotNull final String message)
     {
         super(message);
+
+		Objects.requireNonNull(message);
     }
 }

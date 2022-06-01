@@ -1,7 +1,7 @@
 package dev.kalenchukov.fieldvalueinjector.converters.singles;
 
 import dev.kalenchukov.fieldvalueinjector.Converting;
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterException;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -15,7 +15,7 @@ public final class LongConverter implements Converting<Long>
 	@Override
 	@Nullable
 	public Long convertValueToType(@Nullable final String @Nullable [] value)
-		throws UnableConverterFieldValueInjectorException
+		throws UnableConverterException
 	{
 		if (value == null || value[0] == null) {
 			return null;
@@ -27,7 +27,7 @@ public final class LongConverter implements Converting<Long>
 		}
 		catch (NumberFormatException exception)
 		{
-			throw new UnableConverterFieldValueInjectorException();
+			throw new UnableConverterException();
 		}
 	}
 }

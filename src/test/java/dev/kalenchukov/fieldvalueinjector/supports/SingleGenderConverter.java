@@ -7,7 +7,7 @@
 package dev.kalenchukov.fieldvalueinjector.supports;
 
 import dev.kalenchukov.fieldvalueinjector.Converting;
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterException;
 import org.jetbrains.annotations.Nullable;
 
 public class SingleGenderConverter implements Converting<Gender>
@@ -15,7 +15,7 @@ public class SingleGenderConverter implements Converting<Gender>
     @Nullable
     @Override
     public Gender convertValueToType(@Nullable String @Nullable [] value)
-		throws UnableConverterFieldValueInjectorException
+		throws UnableConverterException
     {
         if (value == null || value[0] == null) {
             return null;
@@ -27,7 +27,7 @@ public class SingleGenderConverter implements Converting<Gender>
         }
         catch (IllegalArgumentException exception)
         {
-            throw new UnableConverterFieldValueInjectorException();
+            throw new UnableConverterException();
         }
 
     }

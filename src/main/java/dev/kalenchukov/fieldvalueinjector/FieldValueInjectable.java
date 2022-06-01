@@ -6,9 +6,9 @@
 
 package dev.kalenchukov.fieldvalueinjector;
 
-import dev.kalenchukov.fieldvalueinjector.exceptions.InvalidConverterFieldValueInjectorException;
-import dev.kalenchukov.fieldvalueinjector.exceptions.IllegalValueFieldValueInjectorException;
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnknownConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.InvalidConverterException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.IllegalValueException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnknownConverterException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,10 +35,10 @@ public interface FieldValueInjectable
 	 * 		<li><b>key</b> - поле класса.</li>
 	 * 		<li><b>value</b> - массив значений.</li>
 	 * </ul>
-	 * @throws IllegalValueFieldValueInjectorException Если передано некорректное значение для внедрения в данное поле класса.
-	 * @throws UnknownConverterFieldValueInjectorException Если для типа поля не реализован персональный конвертер.
-	 * @throws InvalidConverterFieldValueInjectorException Если конвертер некорректный.
+	 * @throws IllegalValueException Если передано некорректное значение для внедрения в данное поле класса.
+	 * @throws UnknownConverterException Если для типа поля не реализован персональный конвертер.
+	 * @throws InvalidConverterException Если конвертер некорректный.
 	 */
 	void inject(@NotNull Map<@NotNull String, @Nullable String @Nullable []> data)
-        throws IllegalValueFieldValueInjectorException, UnknownConverterFieldValueInjectorException, InvalidConverterFieldValueInjectorException;
+        throws IllegalValueException, UnknownConverterException, InvalidConverterException;
 }

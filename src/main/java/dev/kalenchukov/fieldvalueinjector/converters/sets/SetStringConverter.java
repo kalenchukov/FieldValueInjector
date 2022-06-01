@@ -2,7 +2,7 @@ package dev.kalenchukov.fieldvalueinjector.converters.sets;
 
 import dev.kalenchukov.fieldvalueinjector.Converting;
 import dev.kalenchukov.fieldvalueinjector.converters.arrays.ArrayOfStringConverter;
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,7 +21,7 @@ public final class SetStringConverter implements Converting<Set<String>>
 	@Override
 	@Nullable
 	public Set<@NotNull String> convertValueToType(@Nullable final String @Nullable [] value)
-		throws UnableConverterFieldValueInjectorException
+		throws UnableConverterException
 	{
 		String[] convertValue = new ArrayOfStringConverter().convertValueToType(value);
 
@@ -32,7 +32,7 @@ public final class SetStringConverter implements Converting<Set<String>>
 		boolean has = Arrays.stream(convertValue).anyMatch(Objects::isNull);
 
 		if (has) {
-			throw new UnableConverterFieldValueInjectorException();
+			throw new UnableConverterException();
 		}
 
 		return Set.of(convertValue);

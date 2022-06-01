@@ -7,9 +7,9 @@
 package dev.kalenchukov.fieldvalueinjector;
 
 import dev.kalenchukov.fieldvalueinjector.annotations.Converter;
-import dev.kalenchukov.fieldvalueinjector.exceptions.InvalidConverterFieldValueInjectorException;
-import dev.kalenchukov.fieldvalueinjector.exceptions.IllegalValueFieldValueInjectorException;
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnknownConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.InvalidConverterException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.IllegalValueException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnknownConverterException;
 import dev.kalenchukov.fieldvalueinjector.supports.*;
 import org.junit.Test;
 
@@ -252,7 +252,7 @@ public class FieldValueInjectorTest
     /**
      * Проверка внедрения {@code null} в {@code Collection}.
      */
-    @Test(expected = IllegalValueFieldValueInjectorException.class)
+    @Test(expected = IllegalValueException.class)
     public void testInject6()
     {
         class Experimental
@@ -272,7 +272,7 @@ public class FieldValueInjectorTest
     /**
      * Проверка внедрения {@code null} в {@code List}.
      */
-    @Test(expected = IllegalValueFieldValueInjectorException.class)
+    @Test(expected = IllegalValueException.class)
     public void testInject7()
     {
         class Experimental
@@ -292,7 +292,7 @@ public class FieldValueInjectorTest
     /**
      * Проверка внедрения {@code null} в {@code Set}.
      */
-    @Test(expected = IllegalValueFieldValueInjectorException.class)
+    @Test(expected = IllegalValueException.class)
     public void testInject8()
     {
         class Experimental
@@ -312,7 +312,7 @@ public class FieldValueInjectorTest
     /**
      * Проверка внедрения в дублирующих значений в {@code Set}.
      */
-    @Test(expected = IllegalValueFieldValueInjectorException.class)
+    @Test(expected = IllegalValueException.class)
     public void testInject9()
     {
         class Experimental
@@ -332,7 +332,7 @@ public class FieldValueInjectorTest
     /**
      * Проверка внедрения в примитивные типы данных.
      */
-    @Test(expected = UnknownConverterFieldValueInjectorException.class)
+    @Test(expected = UnknownConverterException.class)
     public void testInject10()
     {
         class Experimental
@@ -421,7 +421,7 @@ public class FieldValueInjectorTest
     /**
      * Проверка использования неподходящего собственного конвертера типа данных.
      */
-    @Test(expected = InvalidConverterFieldValueInjectorException.class)
+    @Test(expected = InvalidConverterException.class)
     public void testInject14()
     {
         class Experimental
@@ -536,7 +536,7 @@ public class FieldValueInjectorTest
     /**
      * Проверка внедрения дублирующих значений {@code Gender} в коллекцию {@code Set}.
      */
-    @Test(expected = IllegalValueFieldValueInjectorException.class)
+    @Test(expected = IllegalValueException.class)
     public void testInject19()
     {
         class Experimental
@@ -557,7 +557,7 @@ public class FieldValueInjectorTest
     /**
      * Проверка внедрения {@code null} в коллекцию {@code List} из своего типа данных {@code Gender}.
      */
-    @Test(expected = IllegalValueFieldValueInjectorException.class)
+    @Test(expected = IllegalValueException.class)
     public void testInject20()
     {
         class Experimental
@@ -580,7 +580,7 @@ public class FieldValueInjectorTest
      * В качестве неизвестного типа данных коллекция {@code List} из {@code String[]},
      * для которого нет стандартного конвертера.
      */
-    @Test(expected = UnknownConverterFieldValueInjectorException.class)
+    @Test(expected = UnknownConverterException.class)
     public void testInject21()
     {
         class Experimental

@@ -2,7 +2,7 @@ package dev.kalenchukov.fieldvalueinjector.converters.lists;
 
 import dev.kalenchukov.fieldvalueinjector.Converting;
 import dev.kalenchukov.fieldvalueinjector.converters.arrays.ArrayOfBooleanConverter;
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,7 +21,7 @@ public final class ListBooleanConverter implements Converting<List<Boolean>>
 	@Override
 	@Nullable
 	public List<@NotNull Boolean> convertValueToType(@Nullable final String @Nullable [] value)
-		throws UnableConverterFieldValueInjectorException
+		throws UnableConverterException
 	{
 		Boolean[] convertValue = new ArrayOfBooleanConverter().convertValueToType(value);
 
@@ -32,7 +32,7 @@ public final class ListBooleanConverter implements Converting<List<Boolean>>
 		boolean has = Arrays.stream(convertValue).anyMatch(Objects::isNull);
 
 		if (has) {
-			throw new UnableConverterFieldValueInjectorException();
+			throw new UnableConverterException();
 		}
 
 		return List.of(convertValue);

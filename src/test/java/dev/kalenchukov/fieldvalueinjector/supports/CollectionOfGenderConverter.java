@@ -7,7 +7,7 @@
 package dev.kalenchukov.fieldvalueinjector.supports;
 
 import dev.kalenchukov.fieldvalueinjector.Converting;
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -18,7 +18,7 @@ public class CollectionOfGenderConverter implements Converting<Collection<Gender
     @Nullable
     @Override
     public Collection<@NotNull Gender> convertValueToType(@Nullable String @Nullable [] value)
-		throws UnableConverterFieldValueInjectorException
+		throws UnableConverterException
     {
         Gender[] convertValue = new ArrayOfGenderConverter().convertValueToType(value);
 
@@ -29,7 +29,7 @@ public class CollectionOfGenderConverter implements Converting<Collection<Gender
         boolean has = Arrays.stream(convertValue).anyMatch(Objects::isNull);
 
         if (has) {
-            throw new UnableConverterFieldValueInjectorException();
+            throw new UnableConverterException();
         }
 
         return List.of(convertValue);

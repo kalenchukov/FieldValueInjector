@@ -6,7 +6,7 @@
 
 package dev.kalenchukov.fieldvalueinjector;
 
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterException;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -21,9 +21,9 @@ public interface Converting<T>
 	 *
 	 * @param value Значения, тип данных которых необходимо конвертировать.
 	 * @return Возвращает значение конвертированное в указанный тип данных.
-	 * @throws UnableConverterFieldValueInjectorException Если конвертировать значение в нужный тип данных не удалось.
+	 * @throws UnableConverterException Если конвертировать значение в нужный тип данных не удалось.
 	 */
 	@Nullable
 	T convertValueToType(@Nullable String @Nullable [] value)
-		throws UnableConverterFieldValueInjectorException;
+		throws UnableConverterException;
 }

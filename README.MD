@@ -93,7 +93,7 @@ public final class GenderConverter implements Converting<Gender>
 {
     @Override
     public @Nullable Gender convertValueToType(@Nullable String @Nullable [] value) 
-        throws UnableConverterFieldValueInjectorException
+        throws UnableConverterException
     {
         if (value == null || value[0] == null) {
             return null;
@@ -105,7 +105,7 @@ public final class GenderConverter implements Converting<Gender>
         }
         catch (IllegalArgumentException exception)
         {
-            throw new UnableConverterFieldValueInjectorException();
+            throw new UnableConverterException();
         }
     }
 }

@@ -1,7 +1,7 @@
 package dev.kalenchukov.fieldvalueinjector.converters.singles;
 
 import dev.kalenchukov.fieldvalueinjector.Converting;
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterException;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -15,7 +15,7 @@ public final class CharacterConverter implements Converting<Character>
 	@Override
 	@Nullable
 	public Character convertValueToType(@Nullable final String @Nullable [] value)
-		throws UnableConverterFieldValueInjectorException
+		throws UnableConverterException
 	{
 		if (value == null || value[0] == null) {
 			return null;
@@ -27,7 +27,7 @@ public final class CharacterConverter implements Converting<Character>
 		}
 		catch (IndexOutOfBoundsException exception)
 		{
-			throw new UnableConverterFieldValueInjectorException();
+			throw new UnableConverterException();
 		}
 	}
 }

@@ -1,7 +1,7 @@
 package dev.kalenchukov.fieldvalueinjector.converters.singles;
 
 import dev.kalenchukov.fieldvalueinjector.Converting;
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterException;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -15,7 +15,7 @@ public final class BooleanConverter implements Converting<Boolean>
 	@Override
 	@Nullable
 	public Boolean convertValueToType(@Nullable final String @Nullable [] value)
-		throws UnableConverterFieldValueInjectorException
+		throws UnableConverterException
 	{
 		if (value == null || value[0] == null) {
 			return null;
@@ -25,7 +25,7 @@ public final class BooleanConverter implements Converting<Boolean>
 		{
 			case "true" -> true;
 			case "false" -> false;
-			default	-> throw new UnableConverterFieldValueInjectorException();
+			default	-> throw new UnableConverterException();
 		};
 	}
 }

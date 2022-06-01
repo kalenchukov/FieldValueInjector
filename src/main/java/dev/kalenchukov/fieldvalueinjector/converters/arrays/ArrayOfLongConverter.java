@@ -2,7 +2,7 @@ package dev.kalenchukov.fieldvalueinjector.converters.arrays;
 
 import dev.kalenchukov.fieldvalueinjector.Converting;
 import dev.kalenchukov.fieldvalueinjector.converters.singles.LongConverter;
-import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterFieldValueInjectorException;
+import dev.kalenchukov.fieldvalueinjector.exceptions.UnableConverterException;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -16,7 +16,7 @@ public final class ArrayOfLongConverter implements Converting<Long[]>
 	@Override
 	@Nullable
 	public Long @Nullable [] convertValueToType(@Nullable final String @Nullable [] value)
-		throws UnableConverterFieldValueInjectorException
+		throws UnableConverterException
 	{
 		if (value == null) {
 			return null;

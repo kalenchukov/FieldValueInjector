@@ -90,7 +90,7 @@ public class FieldValueInjector implements FieldValueInjectable
 	 */
 	@Override
 	public void inject(@NotNull final Map<@NotNull String, @Nullable String @Nullable []> data)
-		throws IllegalValueFieldValueInjectorException, UnknownConverterFieldValueInjectorException, InvalidConverterFieldValueInjectorException
+		throws IllegalValueException, UnknownConverterException, InvalidConverterException
 	{
 		Objects.requireNonNull(data);
 
@@ -137,12 +137,12 @@ public class FieldValueInjector implements FieldValueInjectable
 	 * @param field Поле класса в которое необходимо внедрить значение.
 	 * @param value Коллекция значений которые необходимо внедрить в поле класса.
 	 *
-	 * @throws IllegalValueFieldValueInjectorException Если передано некорректное значение для внедрения в данное поле класса.
-	 * @throws UnknownConverterFieldValueInjectorException Если для типа поля не реализован персональный конвертер.
-	 * @throws InvalidConverterFieldValueInjectorException Если конвертер некорректный.
+	 * @throws IllegalValueException Если передано некорректное значение для внедрения в данное поле класса.
+	 * @throws UnknownConverterException Если для типа поля не реализован персональный конвертер.
+	 * @throws InvalidConverterException Если конвертер некорректный.
 	 */
 	private void injectValueField(@NotNull final Field field, @Nullable final String @Nullable [] value)
-		throws IllegalValueFieldValueInjectorException, UnknownConverterFieldValueInjectorException, InvalidConverterFieldValueInjectorException
+		throws IllegalValueException, UnknownConverterException, InvalidConverterException
 	{
 		Objects.requireNonNull(field);
 		Objects.requireNonNull(value);
@@ -152,7 +152,7 @@ public class FieldValueInjector implements FieldValueInjectable
 		);
 
 		if (!has) {
-			throw new UnknownConverterFieldValueInjectorException(String.format(
+			throw new UnknownConverterException(String.format(
 				localeExceptions.getString("70002"),
 				field.getGenericType().getTypeName(),
 				this.object.getClass().getName()
@@ -180,7 +180,7 @@ public class FieldValueInjector implements FieldValueInjectable
 		}
 		catch (InvocationTargetException exception)
 		{
-			throw new IllegalValueFieldValueInjectorException(String.format(
+			throw new IllegalValueException(String.format(
 				localeExceptions.getString("70001"),
 				field.getName(),
 				this.object.getClass().getName()
@@ -189,7 +189,7 @@ public class FieldValueInjector implements FieldValueInjectable
 		catch (IllegalArgumentException | NoSuchMethodException |
 			IllegalAccessException | InstantiationException exception)
 		{
-			throw new InvalidConverterFieldValueInjectorException(String.format(
+			throw new InvalidConverterException(String.format(
 				localeExceptions.getString("70003"),
 				converter.getName(),
 				this.object.getClass().getName()
