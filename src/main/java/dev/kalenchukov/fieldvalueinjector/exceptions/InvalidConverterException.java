@@ -22,8 +22,6 @@ public class InvalidConverterException extends RuntimeException
      */
     public InvalidConverterException(@NotNull final String message)
     {
-        super(message);
-
-		Objects.requireNonNull(message);
+		super(Objects.requireNonNull(message));
     }
 }

@@ -22,8 +22,6 @@ public class IllegalValueException extends RuntimeException
      */
     public IllegalValueException(@NotNull final String message)
     {
-        super(message);
-
-		Objects.requireNonNull(message);
+		super(Objects.requireNonNull(message));
     }
 }

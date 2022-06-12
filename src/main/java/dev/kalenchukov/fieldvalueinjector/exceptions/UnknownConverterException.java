@@ -22,8 +22,6 @@ public class UnknownConverterException extends RuntimeException
      */
     public UnknownConverterException(@NotNull final String message)
     {
-        super(message);
-
-		Objects.requireNonNull(message);
+        super(Objects.requireNonNull(message));
     }
 }
