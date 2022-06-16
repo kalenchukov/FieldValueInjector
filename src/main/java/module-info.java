@@ -1,9 +1,9 @@
-module dev.kalenchukov.fieldvalueinjector
+module dev.kalenchukov.lemna.injection
 {
 	requires org.jetbrains.annotations;
 	requires log4j;
 
-	exports dev.kalenchukov.fieldvalueinjector;
-	exports dev.kalenchukov.fieldvalueinjector.annotations;
-	exports dev.kalenchukov.fieldvalueinjector.exceptions;
+	exports dev.kalenchukov.lemna.injection;
+	exports dev.kalenchukov.lemna.injection.annotations;
+	exports dev.kalenchukov.lemna.injection.exceptions;
 }

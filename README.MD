@@ -1,4 +1,4 @@
-# FieldValueInjector
+# Lemna Injection
 Внедрение значений в поля классов.
 
 ### Поддерживаемые типы данных полей
@@ -87,44 +87,44 @@ public enum Gender
 Для создания конвертера типа данных необходимо создать класс реализующий интерфейс "Converting".
 
 ```java
-import dev.kalenchukov.fieldvalueinjector.Converting;
+import Converting;
 
 public final class GenderConverter implements Converting<Gender>
 {
-    @Override
-    public @Nullable Gender convertValueToType(@Nullable String @Nullable [] value) 
-        throws UnableConverterException
-    {
-        if (value == null || value[0] == null) {
-            return null;
-        }
+	@Override
+	public @Nullable Gender convertValueToType(@Nullable String @Nullable [] value) throws UnableConverterException
+	{
+		if (value == null || value[0] == null)
+		{
+			return null;
+		}
 
-        try
-        {
-            return Gender.valueOf(value[0]);
-        }
-        catch (IllegalArgumentException exception)
-        {
-            throw new UnableConverterException();
-        }
-    }
+		try
+		{
+			return Gender.valueOf(value[0]);
+		}
+		catch (IllegalArgumentException exception)
+		{
+			throw new UnableConverterException();
+		}
+	}
 }
 ```
 
 Класс для поля которого необходим конвертер:
 
 ```java
-import dev.kalenchukov.fieldvalueinjector.annotations.Converter;
+import Converter;
 
 public class Experimental
 {
-    @Converter(converter = GenderConverter.class)
-    private Gender gender;
+	@Converter(converter = GenderConverter.class)
+	private Gender gender;
 
-    public Gender getGender()
-    {
-        return this.gender;
-    }
+	public Gender getGender()
+	{
+		return this.gender;
+	}
 }
 ```
 
